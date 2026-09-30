@@ -5,29 +5,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Study Index</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg: #FFFCF2;
+    --bg: #F3F7FA;
     --panel: #FFFFFF;
     --glass: #FFFFFF;
-    --glass-strong: #FFFDF0;
-    --border: #F2E3A8;
-    --border-soft: #F6ECC2;
-    --ink: #3A2E14;
-    --ink-soft: #8A7B54;
-    --ink-faint: #C9BA85;
-    --accent: #FFD400;
-    --accent-deep: #E0AE00;
-    --leaf: #7CB342;
+    --glass-strong: #EEF5F8;
+    --border: #D6E3EA;
+    --border-soft: #E4EDF1;
+    --ink: #1E2A38;
+    --ink-soft: #64798C;
+    --ink-faint: #AFC0CC;
+    --accent: #FF8F65;
+    --accent-deep: #E36B3F;
+    --leaf: #4FB0A5;
     --danger: #E85D4C;
 
-    --c0: #FFD400;  --c0-bg: #FFF6C2;
-    --c1: #7CB342;  --c1-bg: #E7F3D8;
-    --c2: #FF9F1C;  --c2-bg: #FFE9CC;
-    --c3: #FF6F61;  --c3-bg: #FFE0DC;
-    --c4: #52B788;  --c4-bg: #DCF3E8;
-    --c5: #5AA9E6;  --c5-bg: #DCEBFA;
+    --c0: #5B9BD5;  --c0-bg: #E3EFFA;
+    --c1: #4FB0A5;  --c1-bg: #DFF3F0;
+    --c2: #9F87E8;  --c2-bg: #ECE6FB;
+    --c3: #FF8F65;  --c3-bg: #FFE7DC;
+    --c4: #6FBF8C;  --c4-bg: #E1F3E6;
+    --c5: #6E8FB5;  --c5-bg: #E5ECF3;
   }
 
   *{ box-sizing: border-box; }
@@ -36,11 +36,11 @@
     margin: 0;
     background: var(--bg);
     background-image:
-      radial-gradient(circle at 8% -5%, rgba(255,212,0,0.16), transparent 42%),
-      radial-gradient(circle at 95% 10%, rgba(124,179,66,0.10), transparent 40%);
+      radial-gradient(circle at 8% -5%, rgba(91,155,213,0.10), transparent 42%),
+      radial-gradient(circle at 95% 10%, rgba(79,176,165,0.08), transparent 40%);
     background-attachment: fixed;
     color: var(--ink);
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Manrope', sans-serif;
     -webkit-font-smoothing: antialiased;
   }
 
@@ -80,7 +80,7 @@
   .sem-pill.active{
     background: var(--accent);
     border-color: var(--accent-deep);
-    color: #3A2E14;
+    color: #1E2A38;
   }
   .cal-btn{
     flex-shrink: 0;
@@ -141,7 +141,7 @@
   .search-wrap{ margin-bottom: 12px; }
   .search-input{
     width: 100%;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 0.9rem;
     padding: 9px 14px;
     border: 1.5px solid var(--border);
@@ -158,19 +158,30 @@
     gap: 10px;
   }
   .overview-row{
-    display: grid;
-    grid-template-columns: 130px 1fr 44px;
+    display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 8px;
     background: var(--glass);
     border: 1px solid var(--border);
     border-radius: 12px;
     padding: 0.9rem 1.1rem;
-    cursor: pointer;
-    text-align: left;
     transition: border-color 0.15s ease;
   }
   .overview-row:hover{ border-color: var(--accent-deep); }
+  .overview-row-main{
+    flex: 1;
+    display: grid;
+    grid-template-columns: 130px 1fr 44px;
+    align-items: center;
+    gap: 14px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    text-align: left;
+    font-family: 'Manrope', sans-serif;
+    color: inherit;
+  }
   .overview-row-name{ font-weight: 600; font-size: 0.92rem; color: var(--ink); }
   .overview-row-track{
     height: 6px;
@@ -180,6 +191,21 @@
   }
   .overview-row-fill{ height: 100%; background: var(--accent); }
   .overview-row-pct{ font-size: 0.8rem; font-weight: 600; color: var(--ink-soft); text-align: right; }
+  .overview-row-del{
+    flex-shrink: 0;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    font-size: 0.9rem;
+    color: var(--ink-faint);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+  }
+  .overview-row-del:hover{ color: var(--danger); border-color: var(--danger); }
 
   /* ---------- Calendar ---------- */
   .cal-wrap{
@@ -255,7 +281,7 @@
   .add-assignment-toggle{
     background: var(--accent);
     border: none;
-    color: #3A2E14;
+    color: #1E2A38;
     font-weight: 700;
     font-size: 0.85rem;
     padding: 9px 18px;
@@ -284,7 +310,7 @@
   .add-assignment-form select,
   .add-assignment-form input,
   .add-assignment-form textarea{
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 0.88rem;
     padding: 8px 10px;
     border: 1.5px solid var(--border);
@@ -311,7 +337,7 @@
   .type-pill.active{
     background: var(--accent);
     border-color: var(--accent-deep);
-    color: #3A2E14;
+    color: #1E2A38;
   }
   .add-assignment-submit{
     background: var(--ink);
@@ -362,7 +388,7 @@
     border: none;
     cursor: pointer;
     padding: 0;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Manrope', sans-serif;
   }
   button.assignment-title.clickable:hover{ color: var(--accent-deep); }
   .assignment-desc{
@@ -382,7 +408,7 @@
     white-space: nowrap;
   }
   .badge-individual{ background: var(--border-soft); color: var(--ink-soft); }
-  .badge-group{ background: #E9DBFF; color: #6B3FA0; }
+  .badge-group{ background: #ECE6FB; color: #6B46C1; }
   .assignment-date{
     font-size: 0.78rem;
     font-weight: 600;
@@ -539,7 +565,7 @@
     align-items: center;
     justify-content: center;
     font-size: 1.25rem;
-    background: var(--card-bg, #FFF6C2);
+    background: var(--card-bg, #E3EFFA);
   }
 
   .card-name{
@@ -590,6 +616,15 @@
     margin: 0 0 4px;
     color: var(--ink);
   }
+  .edit-icon-btn{
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.85rem;
+    color: var(--ink-faint);
+    padding: 0;
+  }
+  .edit-icon-btn:hover{ color: var(--accent-deep); }
   .subject-head .subject-sub{
     font-size: 0.8rem;
     color: var(--ink-soft);
@@ -643,7 +678,7 @@
   .check.checked{
     background: var(--accent);
     border-color: var(--accent);
-    color: #3A2E14;
+    color: #1E2A38;
     box-shadow: 0 0 0 4px var(--c0-bg);
   }
 
@@ -717,8 +752,68 @@
     color: var(--ink);
     margin-bottom: 6px;
   }
-  .empty .big::before{ content: "🍋 "; }
+  .empty .big::before{ content: "🎯 "; }
 
+  .site-footer{
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+    padding-top: 1.4rem;
+    border-top: 1px solid var(--border-soft);
+  }
+  .footer-link{
+    background: none;
+    border: none;
+    color: var(--ink-faint);
+    font-size: 0.72rem;
+    cursor: pointer;
+    padding: 4px 8px;
+  }
+  .footer-link:hover{ color: var(--ink-soft); }
+
+  .setup-list{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .setup-step{
+    background: var(--glass);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 0.9rem 1.1rem;
+  }
+  .setup-step-head{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .setup-num{
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #1E2A38;
+    font-size: 0.72rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .setup-title{ font-weight: 700; font-size: 0.95rem; color: var(--ink); }
+  .setup-loc{
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+    font-weight: 600;
+    margin-bottom: 4px;
+    margin-left: 32px;
+  }
+  .setup-note{
+    font-size: 0.8rem;
+    color: var(--ink-faint);
+    margin-left: 32px;
+    line-height: 1.5;
+  }
   .status{
     font-size: 0.85rem;
     color: var(--ink-soft);
@@ -727,34 +822,53 @@
   }
 
   @media (max-width: 680px){
-    .app{ padding: 2.2rem 1.1rem 3rem; }
-    .hero{ flex-direction: column; align-items: flex-start; gap: 1.2rem; }
-    .hero-text h1{ font-size: 1.7rem; }
-    .grid{ grid-template-columns: 1fr 1fr; }
-    .topic-row{ grid-template-columns: 22px 1fr; row-gap: 10px; }
+    .app{ padding: 1.8rem 1rem 3rem; }
+    .hero{ flex-direction: column; align-items: flex-start; gap: 1.1rem; }
+    .hero-text h1{ font-size: 1.5rem; }
+    .ring{ width: 80px; height: 80px; }
+    .ring .ring-pct{ font-size: 1rem; }
+    .grid{ grid-template-columns: 1fr 1fr; gap: 10px; }
+    .card{ padding: 1rem; }
+    .topic-row{ grid-template-columns: 26px 1fr; row-gap: 10px; }
+    .check{ width: 24px; height: 24px; }
     .topic-actions{
       grid-column: 1 / -1;
       flex-wrap: wrap;
       margin-left: 34px;
     }
+    button.pill-btn{ padding: 7px 12px; font-size: 0.74rem; }
     .preview-wrap{ margin-left: 0; }
-    .preview-wrap iframe{ height: 260px; }
+    .preview-wrap iframe{ height: 240px; }
 
     .top-bar{ flex-direction: column; align-items: stretch; gap: 10px; }
-    .cal-btn{ align-self: flex-start; }
-    .overview-row{ grid-template-columns: 1fr; row-gap: 6px; }
+    .cal-btn{ align-self: stretch; text-align: center; padding: 10px 14px; }
+    .sem-pill{ padding: 8px 14px; }
+
+    .overview-row-main{ grid-template-columns: 1fr; row-gap: 6px; }
+    .overview-row{ padding: 0.8rem 1rem; }
     .overview-row-pct{ text-align: left; }
+
+    .cal-wrap{ padding: 0.85rem 0.7rem 1rem; }
+    .cal-nav-btn{ width: 34px; height: 34px; }
+    .cal-cell{ min-height: 38px; padding: 3px; }
+    .cal-daynum{ font-size: 0.66rem; }
+    .cal-dow-cell{ font-size: 0.62rem; }
+    .cal-legend{ flex-wrap: wrap; gap: 12px; }
+    .add-assignment-toggle{ width: 100%; text-align: center; }
+
     .assignment-row{
       grid-template-columns: 8px 1fr auto;
       row-gap: 6px;
     }
     .assignment-subject{ grid-column: 2 / 3; }
-    .assignment-title{ grid-column: 2 / 3; }
+    .assignment-title{ grid-column: 2 / 3; white-space: normal; }
     .assignment-badge{ grid-column: 2 / 3; justify-self: start; }
     .assignment-date{ grid-column: 2 / 3; }
+    .assignment-del{ font-size: 1.3rem; padding: 4px 8px; }
   }
   @media (max-width: 420px){
     .grid{ grid-template-columns: 1fr; }
+    .card-name{ font-size: 0.96rem; }
   }
 </style>
 </head>
@@ -1000,14 +1114,23 @@ function renderTopBar(){
 function render(){
   const app = document.getElementById('app');
   app.innerHTML = '';
+
+  if(view === 'setup'){
+    app.appendChild(renderSetup());
+    app.appendChild(renderFooter());
+    return;
+  }
+
   app.appendChild(renderTopBar());
 
   if(view === 'overview'){
     app.appendChild(renderOverview());
+    app.appendChild(renderFooter());
     return;
   }
   if(view === 'calendar'){
     app.appendChild(renderCalendar());
+    app.appendChild(renderFooter());
     return;
   }
 
@@ -1016,9 +1139,101 @@ function render(){
     app.appendChild(renderHome(subjects));
   } else {
     const sub = subjects.find(s => s.id === view);
-    if(!sub){ view = 'home'; app.appendChild(renderHome(subjects)); return; }
+    if(!sub){ view = 'home'; app.appendChild(renderHome(subjects)); app.appendChild(renderFooter()); return; }
     app.appendChild(renderSubject(sub));
   }
+  app.appendChild(renderFooter());
+}
+
+function renderFooter(){
+  const footer = document.createElement('div');
+  footer.className = 'site-footer';
+  const link = document.createElement('button');
+  link.className = 'footer-link';
+  link.textContent = '⚙ Dev notes';
+  link.addEventListener('click', () => { view = 'setup'; render(); window.scrollTo(0,0); });
+  footer.appendChild(link);
+  return footer;
+}
+
+function renderSetup(){
+  const frag = document.createDocumentFragment();
+
+  const back = document.createElement('button');
+  back.className = 'back-btn';
+  back.textContent = '← Back to app';
+  back.addEventListener('click', () => { view = 'home'; render(); window.scrollTo(0,0); });
+  frag.appendChild(back);
+
+  const hero = document.createElement('div');
+  hero.className = 'hero';
+  hero.innerHTML =
+    '<div class="hero-text">' +
+      '<div class="eyebrow">⚙ Private notes</div>' +
+      '<h1>Account mode setup</h1>' +
+      '<p>Reference for turning this into an account-based site with Firebase. Not visible to anyone unless they click this link.</p>' +
+    '</div>';
+  frag.appendChild(hero);
+
+  const steps = [
+    { n: 1, title: 'Create a Firebase project', loc: 'console.firebase.google.com → "Add project"', note: 'Free tier covers hundreds of users easily.' },
+    { n: 2, title: 'Turn on Authentication', loc: 'Build → Authentication → Get started → Sign-in method → enable "Email/Password"', note: 'Can add Google sign-in later too.' },
+    { n: 3, title: 'Turn on Firestore', loc: 'Build → Firestore Database → Create database', note: 'Start in Test mode while building.' },
+    { n: 4, title: 'Set security rules', loc: 'Firestore Database → Rules tab → edit → Publish', note: 'Must lock to "user can only read/write their own doc" before any real client uses it.' },
+    { n: 5, title: 'Rebuild the data layer', loc: 'In your code — add Firebase SDK <script> tags, replace storageGet/storageSet with db.collection(\'users\').doc(uid) calls', note: 'Data shape (semesters/assignments) stays the same — just where it\'s read/written from changes.' },
+    { n: 6, title: 'Bring back editing', loc: 'In your code — restore the add/edit/remove-slide forms and editable subject/semester names that were removed for the locked "customer" version', note: 'Safe now since each user only ever touches their own document.' },
+    { n: 7, title: 'Get the config key', loc: '⚙ Project settings → General → "Your apps" → click the </> web icon → copy firebaseConfig', note: 'Safe to be public in the HTML — the security rules are what actually protect data, not this key.' },
+    { n: 8, title: 'Test with real accounts', loc: 'Authentication → Users tab (to see who\'s signed up); use two different browsers/incognito windows to test', note: 'Confirm one account never sees another\'s data.' },
+    { n: 9, title: 'Deploy', loc: 'Authentication → Settings → Authorized domains → add your GitHub Pages domain (yourusername.github.io)', note: 'Login silently fails on any domain not added here — easy to miss.' }
+  ];
+
+  const list = document.createElement('div');
+  list.className = 'setup-list';
+  steps.forEach(s => {
+    const card = document.createElement('div');
+    card.className = 'setup-step';
+    card.innerHTML =
+      '<div class="setup-step-head"><span class="setup-num">' + s.n + '</span><span class="setup-title">' + escapeHtml(s.title) + '</span></div>' +
+      '<div class="setup-loc">📍 ' + escapeHtml(s.loc) + '</div>' +
+      (s.note ? '<div class="setup-note">' + escapeHtml(s.note) + '</div>' : '');
+    list.appendChild(card);
+  });
+  frag.appendChild(list);
+
+  return frag;
+}
+
+function removeSemester(i){
+  if(data.semesters.length <= 1){
+    alert('You need at least one semester.');
+    return;
+  }
+  const semName = data.semesters[i].name;
+  if(!confirm('Remove "' + semName + '" and everything in it — including its subjects, slides, and assignments? This can\'t be undone.')) return;
+
+  data.semesters.splice(i, 1);
+  data.assignments = data.assignments
+    .filter(a => a.semIndex !== i)
+    .map(a => a.semIndex > i ? Object.assign({}, a, { semIndex: a.semIndex - 1 }) : a);
+
+  if(semIndex === i) semIndex = 0;
+  else if(semIndex > i) semIndex -= 1;
+
+  if(data.lastTouched && data.lastTouched.semIndex === i) data.lastTouched = null;
+  else if(data.lastTouched && data.lastTouched.semIndex > i) data.lastTouched.semIndex -= 1;
+
+  save();
+  render();
+}
+
+function addSemester(){
+  data.semesters.push({
+    id: uid(),
+    name: 'Semester ' + (data.semesters.length + 1),
+    subjects: buildSemesterSubjects(-1)
+  });
+  save();
+  render();
 }
 
 function renderOverview(){
@@ -1028,7 +1243,7 @@ function renderOverview(){
   hero.className = 'hero';
   hero.innerHTML =
     '<div class="hero-text">' +
-      '<div class="eyebrow">🍋 All semesters</div>' +
+      '<div class="eyebrow">🎯 All semesters</div>' +
       '<h1>Your progress at a glance.</h1>' +
       '<p>Tap a semester to jump in.</p>' +
     '</div>';
@@ -1041,16 +1256,36 @@ function renderOverview(){
     const done = sem.subjects.reduce((s, sub) => s + sub.slides.filter(x => x.reviewed).length, 0);
     const pct = total ? Math.round((done/total)*100) : 0;
 
-    const row = document.createElement('button');
+    const row = document.createElement('div');
     row.className = 'overview-row';
-    row.innerHTML =
+
+    const mainBtn = document.createElement('button');
+    mainBtn.className = 'overview-row-main';
+    mainBtn.innerHTML =
       '<div class="overview-row-name">' + escapeHtml(sem.name) + '</div>' +
       '<div class="overview-row-track"><div class="overview-row-fill" style="width:' + pct + '%"></div></div>' +
       '<div class="overview-row-pct">' + (total ? pct + '%' : '—') + '</div>';
-    row.addEventListener('click', () => { semIndex = i; view = 'home'; render(); window.scrollTo(0,0); });
+    mainBtn.addEventListener('click', () => { semIndex = i; view = 'home'; render(); window.scrollTo(0,0); });
+    row.appendChild(mainBtn);
+
+    const delBtn = document.createElement('button');
+    delBtn.className = 'overview-row-del';
+    delBtn.textContent = '×';
+    delBtn.title = 'Remove semester';
+    delBtn.addEventListener('click', (e) => { e.stopPropagation(); removeSemester(i); });
+    row.appendChild(delBtn);
+
     list.appendChild(row);
   });
   frag.appendChild(list);
+
+  const addBtn = document.createElement('button');
+  addBtn.className = 'add-assignment-toggle';
+  addBtn.style.marginTop = '14px';
+  addBtn.textContent = '+ Add semester';
+  addBtn.addEventListener('click', addSemester);
+  frag.appendChild(addBtn);
+
   return frag;
 }
 
@@ -1065,7 +1300,7 @@ function renderHome(subjects){
   hero.className = 'hero';
   hero.innerHTML =
     '<div class="hero-text">' +
-      '<div class="eyebrow">🍋 ' + escapeHtml(currentSemester().name) + '</div>' +
+      '<div class="eyebrow">🎯 ' + escapeHtml(currentSemester().name) + '</div>' +
       '<h1>Ready when you are.</h1>' +
       '<p>' + (totalAll ? (doneAll + ' of ' + totalAll + ' topics reviewed across your subjects.') : 'Pick a subject below to start reviewing.') + '</p>' +
     '</div>';
@@ -1172,9 +1407,32 @@ function renderSubject(sub){
   icon.textContent = sub.icon;
   left.appendChild(icon);
   const titleWrap = document.createElement('div');
-  titleWrap.innerHTML =
-    '<h2>' + escapeHtml(sub.name) + '</h2>' +
-    '<div class="subject-sub">' + (total ? (done + ' / ' + total + ' reviewed') : 'no content yet') + '</div>';
+  const nameRow = document.createElement('div');
+  nameRow.style.display = 'flex';
+  nameRow.style.alignItems = 'center';
+  nameRow.style.gap = '8px';
+  const h2 = document.createElement('h2');
+  h2.style.margin = '0';
+  h2.textContent = sub.name;
+  nameRow.appendChild(h2);
+  const renameBtn = document.createElement('button');
+  renameBtn.className = 'edit-icon-btn';
+  renameBtn.textContent = '✏️';
+  renameBtn.title = 'Rename subject';
+  renameBtn.addEventListener('click', () => {
+    const newName = prompt('Rename this subject:', sub.name);
+    if(newName && newName.trim()){
+      sub.name = newName.trim();
+      save();
+      render();
+    }
+  });
+  nameRow.appendChild(renameBtn);
+  titleWrap.appendChild(nameRow);
+  const subLine = document.createElement('div');
+  subLine.className = 'subject-sub';
+  subLine.textContent = total ? (done + ' / ' + total + ' reviewed') : 'no content yet';
+  titleWrap.appendChild(subLine);
   left.appendChild(titleWrap);
   head.appendChild(left);
 
@@ -1544,6 +1802,7 @@ function renderCalendar(){
       delBtn.textContent = '×';
       delBtn.setAttribute('aria-label', 'Remove assignment');
       delBtn.addEventListener('click', () => {
+        if(!confirm('Remove "' + a.title + '"?')) return;
         data.assignments = data.assignments.filter(x => x.id !== a.id);
         assignmentDescExpanded.delete(a.id);
         save();
